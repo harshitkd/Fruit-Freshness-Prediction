@@ -22,21 +22,83 @@ Test          | freshapples     | 395
 |             | rottenbanana    | 530
 |             | rottenoranges   | 403
 
+![test_train dataset](https://user-images.githubusercontent.com/56076028/148802937-949c3ca9-6c2a-4337-94d5-5085a9d853cd.jpg)
+
 
 ## Algorithm
 
-## CNN
+Process how the project was done:
+
+* Getting the information of the dataset.
+* Randomly choosing the fruit image to get the size of the image and also its preview.
+* Resizing the images to size of (150,150) and scaling both the train and test datasets.
+* Used sequential model (3 layer convolutional layer), ResNet50 model and VGG-16 using transfer learning.
+* Plot the accuracy and loss metric.
+* Evaluate the accuracy of the model.
+* Predict the image from test dataset.
+
+## Models
+
+Model                      | Total Parameters     | Loss     | Accuracy  | Optimizer | Loss metric
+-------------              | -------------        | -------- | ----------| --------- | -------------------------
+Sequential 3 layer         | 9,497,126            | 0.0960   | 96.96%    | RMSprop   | Categorical CrossEntropy
+ResNet50V2                 | 23,696,326           | 0.0259   | 97.41%    | Adam      | Binary CrossEntropy
 
 ## Result
 
-Model                      | Total Parameters     | Loss     | Accuracy
--------------              | -------------        | -------- | ----------
-Sequential 3 layer         | 9,497,126            | 0.0960   | 96.96%
-ResNet50V2                 | 23,696,326           | 0.0259   | 97.41%
+<pre>
+from keras.preprocessing.image import img_to_array
+
+names = [fresh_apples_test_dir,
+         fresh_banana_test_dir,
+         fresh_oranges_test_dir,
+         rotten_apples_test_dir,
+         rotten_banana_test_dir,
+         rotten_oranges_test_dir
+]
+name_rand = random.choice(names)
+
+
+filename = os.listdir(name_rand)
+sample = random.choice(filename)
+fn = os.path.join(name_rand,sample)
+print(fn)
+
+
+img = load_img(fn, target_size=(150, 150))
+plt.imshow(img)
+
+
+x = img_to_array(img)
+x = np.expand_dims(x, axis=0)
+images = np.vstack([x])
+classes = model.predict(images, batch_size=10)
+print(classes)
+
+
+prediction = ''
+
+if classes[0][0]==1:
+    prediction = 'fresh apple'
+elif classes[0][1]==1:
+    prediction = 'fresh banana'
+elif classes[0][2]==1:
+    prediction = 'fresh orange'
+elif classes[0][3]==1:
+    prediction = 'rotten apple'
+elif classes[0][4]==1:
+    prediction = 'rotten banana'
+elif classes[0][5]==1:
+    prediction = 'rotten orange'
+
+print(prediction)
+</pre>
+
+![prediction result](https://user-images.githubusercontent.com/56076028/148802492-61e08bf6-d4c9-4a32-a725-3fa8300a2b48.jpg)
 
 ## Future Enhancement
+To make a website integrated with IoT devices to detect whether fruit is rotten or not in real-time.
 
-## Conclusion
 
 ## References
 I have taken references from:
