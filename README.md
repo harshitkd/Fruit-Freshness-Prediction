@@ -1,4 +1,4 @@
-# Fruit-Freshness-Detection
+# Fruit-Freshness-Prediction
 
 ## Introduction
 What's Fresh & What's Rotten is our way to solve problem about fruits classification whether it is rotten or it is fresh (safely can be eaten) using Deep Learning. We do simple CNN to expect some basic performance this simple CNN had in the dataset. Then we improved the model by adding Transfer Learning with VGG-16 and ResNet50 as our baseline model.
@@ -24,6 +24,18 @@ Test          | freshapples     | 395
 
 ![test_train dataset](https://user-images.githubusercontent.com/56076028/148802937-949c3ca9-6c2a-4337-94d5-5085a9d853cd.jpg)
 
+## Technolgies Used
+
+* [Convolutional Neural Network](https://www.tensorflow.org/tutorials/images/cnn):
+* [ResNet50V2](https://keras.io/api/applications/resnet/)
+* [VGG16](https://keras.io/api/applications/vgg/)
+* Sequential Models
+* Sklearn
+* Tensorflow
+* Keras
+* OpenCV
+* Python Libraries: 
+
 
 ## Algorithm
 
@@ -43,6 +55,7 @@ Model                      | Total Parameters     | Loss     | Accuracy  | Optim
 -------------              | -------------        | -------- | ----------| --------- | -------------------------
 Sequential 3 layer         | 9,497,126            | 0.0960   | 96.96%    | RMSprop   | Categorical CrossEntropy
 ResNet50V2                 | 23,696,326           | 0.0259   | 97.41%    | Adam      | Binary CrossEntropy
+VGG16                      | 14,747,910           | 0.108         | 91.4%     | Adam      | Binary CrossEntropy
 
 ## Result
 
