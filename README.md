@@ -34,7 +34,6 @@ Test          | freshapples     | 395
 * Tensorflow
 * Keras
 * OpenCV
-* Python Libraries: 
 
 
 ## Algorithm
