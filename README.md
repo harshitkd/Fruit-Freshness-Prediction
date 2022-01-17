@@ -1,7 +1,7 @@
 # Fruit-Freshness-Prediction
 
 ## Introduction
-What's Fresh & What's Rotten is our way to solve problem about fruits classification whether it is rotten or it is fresh (safely can be eaten) using Deep Learning. We do simple CNN to expect some basic performance this simple CNN had in the dataset. Then we improved the model by adding Transfer Learning with VGG-16 and ResNet50 as our baseline model.
+What's Fresh & What's Rotten is our way to solve problem about fruits classification whether it is rotten or it is fresh (safely can be eaten) using Deep Learning. We do simple CNN to expect some basic performance. Then we improved the model by adding Transfer Learning with VGG-16 and ResNet50 as our baseline model.
 
 ## Dataset
 Used the [Fruit fresh and rotten for classification](https://www.kaggle.com/sriramr/fruits-fresh-and-rotten-for-classification) kaggle dataset.
